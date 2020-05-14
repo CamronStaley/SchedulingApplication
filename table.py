@@ -6,10 +6,11 @@ class Table:
     def __init__(self):
         self.fields = []
         self.master = tk.Tk()
-        tk.Label(self.master, text="Task").grid(row=0, column=0)
-        tk.Label(self.master, text="Date").grid(row=0, column=1)
-        tk.Label(self.master, text="Dependencies").grid(row=0, column=2)
-        self.rows = 1
+        tk.Label(self.master, text="Table Name: ").grid(row=0, column=0)
+        tk.Label(self.master, text="Task").grid(row=1, column=0)
+        tk.Label(self.master, text="Date").grid(row=1, column=1)
+        tk.Label(self.master, text="Dependencies").grid(row=1, column=2)
+        self.rows = 2
 
     def display_data(self):
         for row in self.fields:
@@ -19,7 +20,12 @@ class Table:
 
     def create_table(self, num_tasks):
         self.rows += num_tasks
-        for x in range(1, self.rows):
+        e1 = tk.Entry(self.master)
+        e1.grid(row=0, column=1)
+        temp = [e1]
+        self.fields.append(temp)
+
+        for x in range(2, self.rows):
             e1 = tk.Entry(self.master)
             e2 = tk.Entry(self.master)
             e3 = tk.Entry(self.master)
