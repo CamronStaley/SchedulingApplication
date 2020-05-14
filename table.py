@@ -9,8 +9,10 @@ class Table:
         tk.Label(self.master, text="Table Name: ").grid(row=0, column=0)
         tk.Label(self.master, text="Task").grid(row=1, column=0)
         tk.Label(self.master, text="Date").grid(row=1, column=1)
-        tk.Label(self.master, text="Dependencies").grid(row=1, column=2)
+        tk.Label(self.master, text="Duration").grid(row=1, column=2)
+        tk.Label(self.master, text="Dependencies").grid(row=1, column=3)
         self.rows = 2
+        self.columns = 4
 
     def display_data(self):
         for row in self.fields:
@@ -26,13 +28,11 @@ class Table:
         self.fields.append(temp)
 
         for x in range(2, self.rows):
-            e1 = tk.Entry(self.master)
-            e2 = tk.Entry(self.master)
-            e3 = tk.Entry(self.master)
-            e1.grid(row=x, column=0)
-            e2.grid(row=x, column=1)
-            e3.grid(row=x, column=2)
-            temp = [e1, e2, e3]
+            temp = []
+            for y in range(0, self.columns):
+                e1 = tk.Entry(self.master)
+                e1.grid(row=x, column=y)
+                temp.append(e1)
             self.fields.append(temp)
         tk.Button(self.master, text='Quit', command=self.master.quit).grid(row=self.rows + 1, column=0, sticky=tk.W,
                                                                            pady=4)
