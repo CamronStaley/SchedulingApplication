@@ -23,3 +23,4 @@ class Schedule:
 
     def create_svg(self, filename, today_date):
         self.chart.make_svg_for_tasks(filename=filename, today=today_date)
+
