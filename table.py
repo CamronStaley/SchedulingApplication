@@ -36,9 +36,11 @@ class Table:
                 if len(data.get()) != 0:
                     strings.append(data.get())
             if len(strings) == 3:
+
                 date = datetime.strptime(strings[1], '%Y, %m, %d')
                 schedule.add_new_task(strings[0], date, int(strings[2]))
             elif len(strings) == 4:
+                print(strings[1])
                 dep_list = []
                 date = datetime.strptime(strings[1], '%Y, %m, %d')
                 dependencies = strings[3].split(', ')
@@ -47,7 +49,7 @@ class Table:
                 schedule.add_new_task(strings[0], date, int(strings[2]), dep_list)
 
         schedule.create_svg(name + '.svg', datetime(2020, 11, 20))
-        os.system('name.svg')
+        os.system(name + '.svg')
 
     def create_table(self, num_tasks):
 
