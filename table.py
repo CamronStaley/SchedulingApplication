@@ -50,6 +50,9 @@ class Table:
                 schedule.add_new_task(strings[0], self.dates[it], int(strings[1]))
             # has dependencies
             elif len(strings) == 2:
+                print("In has dependencies")
+                print(it)
+                print(self.dep_strings[it])
                 schedule.add_new_task(strings[0], self.dates[it], int(strings[1]), schedule.get_task_list(self.dep_strings[it]))
         schedule.create_svg(name + '.svg', datetime(2020, 5, 26))
         os.system(name + '.svg')
@@ -86,7 +89,7 @@ class Table:
             for data in row:
                 if len(data.get()) != 0:
                     strings.append(data.get())
-            if len(strings) > 1 and it != y:
+            if len(strings) > 1 and it < y:
                 tk.Button(frame, text=strings[0], command=lambda dep=strings[0], loc=y: self.add_deps(dep, loc)).pack(fill=BOTH, expand=True)
         tk.Button(frame, text='ok', command=lambda: root.destroy()).pack(fill=BOTH, expand=True)
 
