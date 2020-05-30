@@ -11,6 +11,12 @@ class Schedule:
         self.chart = None
         self.tasks = {}
 
+    def get_task_list(self, to_find):
+        to_return = []
+        for item in to_find:
+            to_return.append(self.tasks.get(item))
+        return to_return
+
     # set the name of the gantt
     def create_gantt(self, title):
         self.chart = gantt.Project(name=title)
