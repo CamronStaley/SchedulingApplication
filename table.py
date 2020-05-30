@@ -15,10 +15,7 @@ class Table:
     dep_col = 2
 
     def __init__(self):
-        format = 'Formats must be as the following: '
-        date_format = 'Start Date: yyyy, mm, dd'
-        duration_format = 'Duration as number of days: #'
-        dep_format = 'Dependencies: previous task, previous task, ect'
+
         self.fields = []
         self.master = tk.Tk()
         self.date_vars = {}
@@ -32,9 +29,6 @@ class Table:
         tk.Label(self.master, text="Duration").grid(row=1, column=2)
         tk.Label(self.master, text="Dependencies").grid(row=1, column=3)
 
-        tk.Label(self.master, text=format).grid(row=2, column=5)
-        tk.Label(self.master, text=duration_format).grid(row=3, column=5)
-        tk.Label(self.master, text=dep_format).grid(row=4, column=5)
         self.rows = 2
         self.columns = 4
 
