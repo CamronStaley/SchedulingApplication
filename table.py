@@ -54,6 +54,7 @@ class Table:
                 print(it)
                 print(self.dep_strings[it])
                 schedule.add_new_task(strings[0], self.dates[it], int(strings[1]), schedule.get_task_list(self.dep_strings[it]))
+        name = name.replace(' ', '_')
         schedule.create_svg(name + '.svg', datetime(2020, 5, 26))
         os.system(name + '.svg')
 
